@@ -2,7 +2,7 @@
   "name": "novelish",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "default": "app.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
