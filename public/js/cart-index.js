@@ -5,7 +5,7 @@ export const addToCart = async (bookId, cart) => {
   try {
     const res = await axios({
       method: 'post',
-      url: 'http://127.0.0.1:5000/api/v1/cart/addW',
+      url: '/api/v1/cart/addW',
       data: { bookId, cart },
     });
 
@@ -22,7 +22,7 @@ export const removeFromCart = async (bookId, cart, removeAll = 'none') => {
   try {
     const res = await axios({
       method: 'post',
-      url: 'http://127.0.0.1:5000/api/v1/cart/removeW',
+      url: '/api/v1/cart/removeW',
       data: { bookId, cart, removeAll },
     });
     if (res.data.status === 'success') {
@@ -41,7 +41,7 @@ export const sendCart = async (cart) => {
   try {
     const res = await axios({
       method: 'post',
-      url: 'http://127.0.0.1:5000/getCart',
+      url: '/getCart',
       data: { cart },
     });
     if (res.data.success) {

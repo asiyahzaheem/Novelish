@@ -10,13 +10,12 @@ export const purchase = async (cart) => {
   try {
     const session = await axios({
       method: 'post',
-      url: 'http://127.0.0.1:5000/api/v1/purchases/checkout-session',
+      url: '/api/v1/purchases/checkout-session',
       data: { cart },
     });
-    console.log(session);
+
     await stripe.redirectToCheckout({ sessionId: session.data.session.id });
   } catch (err) {
-    console.log(err.response.data);
     showAlert('error', err);
   }
 };

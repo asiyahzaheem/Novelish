@@ -18,9 +18,7 @@ mongoose
     useCreateIndex: true,
     useFindAndModify: false,
   })
-  .then(() => {
-    console.log('Database connection successful!');
-  });
+  .then(() => {});
 
 const books = JSON.parse(
   fs.readFileSync(`${__dirname}/book-data.json`, 'utf-8')
@@ -36,11 +34,7 @@ const importData = async () => {
   try {
     //await Book.create(books);
     await Review.create(reviews);
-    //await User.create(users, { validateBeforeSave: false });
-    console.log('Successfully loaded');
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 const deleteData = async () => {
@@ -48,10 +42,7 @@ const deleteData = async () => {
     //await Book.deleteMany();
     //await User.deleteMany();
     await Review.deleteMany();
-    console.log('Successfully deleted');
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 if (process.argv[2] === '--import') importData();

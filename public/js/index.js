@@ -254,7 +254,6 @@ if (checkoutBtn) {
   checkoutBtn.addEventListener('click', (e) => {
     e.target.textContent = 'Processing...';
     const cart = JSON.parse(window.localStorage.getItem('cart'));
-    console.log(Object.values(cart.items));
     purchase(cart);
   });
 }

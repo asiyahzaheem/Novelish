@@ -37,7 +37,6 @@ class Cart {
     ids.forEach((id) => {
       arr.push(this.items[id]);
     });
-    console.log(arr);
     return arr;
   }
 }

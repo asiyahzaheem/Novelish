@@ -1,27 +1,12 @@
 import axios from 'axios';
 import { showAlert } from './alerts';
 
-// export const updateUserData = async (name, email) => {
-//   try {
-//     const res = await axios({
-//       method: 'patch',
-//       url: 'http://127.0.0.1:5000/api/v1/users/updateMe',
-//       data: { name, email },
-//     });
-//     if (res.data.status === 'success') {
-//       showAlert('success', 'Data updated successfully!');
-//     }
-//   } catch (err) {
-//     showAlert('error', err.response.data.message);
-//   }
-// };
-
 export const updateSettings = async (data, type) => {
   try {
     const url =
       type === 'data'
-        ? 'http://127.0.0.1:5000/api/v1/users/updateMe'
-        : 'http://127.0.0.1:5000/api/v1/users/updateMyPassword';
+        ? '/api/v1/users/updateMe'
+        : '/api/v1/users/updateMyPassword';
     const res = await axios({
       method: 'patch',
       url,
@@ -39,7 +24,7 @@ export const forgotPassword = async (email) => {
   try {
     const res = await axios({
       method: 'post',
-      url: 'http://127.0.0.1:5000/api/v1/users/forgotPassword',
+      url: '/api/v1/users/forgotPassword',
       data: { email, from: 'email' },
     });
     if (res.data.status === 'success') {
@@ -57,7 +42,7 @@ export const resetPassword = async (token, password, passwordConfirm) => {
   try {
     const res = await axios({
       method: 'patch',
-      url: `http://127.0.0.1:5000/api/v1/users/resetPassword/${token}`,
+      url: `/api/v1/users/resetPassword/${token}`,
       data: { password, passwordConfirm },
     });
     if (res.data.status === 'success') {

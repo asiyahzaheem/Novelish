@@ -14,7 +14,6 @@ exports.getOverview = catchAsync(async (req, res, next) => {
 
 exports.getBooks = catchAsync(async (req, res, next) => {
   let books;
-  console.log(req.query);
   if (req.query) {
     books = await Book.find();
   } else {
@@ -72,9 +71,6 @@ exports.getResetPwForm = catchAsync(async (req, res, next) => {
 
 exports.getMyOrders = catchAsync(async (req, res, next) => {
   const purchases = await Purchases.find({ user: req.user.id });
-  console.log(purchases);
-  console.log(purchases[0]);
-  console.log(purchases[0].books);
   res.status(200).render('myOrders', {
     title: 'My Orders',
     purchases,

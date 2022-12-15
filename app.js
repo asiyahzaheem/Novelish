@@ -9,6 +9,7 @@ const hpp = require('hpp');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const compression = require('compression');
 
 const bookRouter = require('./routers/bookRouter');
 const userRouter = require('./routers/userRouter');
@@ -95,6 +96,7 @@ app.use(
   })
 );
 
+app.use(compression());
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   next();
