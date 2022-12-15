@@ -1,0 +1,123 @@
+[
+  {
+    "name": "Harry Potter and the Goblet of Fire",
+    "author": "J.K. Rowling",
+    "ISBN": 593334833,
+    "genre": ["Fantasy", "Magic", "Fiction"],
+    "pageCount": 734,
+    "summary": "Harry Potter spends his forth year at Hogwarts battling dragons, friends, foes and his worst enemy.",
+    "description": "It is the summer holidays and soon Harry Potter will be starting his fourth year at Hogwarts School of Witchcraft and Wizardry. Harry is counting the days: there are new spells to be learnt, more Quidditch to be played, and Hogwarts castle to continue exploring. But Harry needs to be careful - there are unexpected dangers lurking...",
+    "price": 10,
+    "image": "book-1.jpg"
+  },
+  {
+    "name": "Harry Potter and the Philosopher's Stone",
+    "author": "J.K. Rowling",
+    "ISBN": 590353403,
+    "genre": ["Fantasy", "Magic", "Fiction"],
+    "pageCount": 380,
+    "summary": "Harry Potter thinks he is an ordinary boy - until he is rescued by an owl, taken to Hogwarts School of Witchcraft and Wizardry, learns to play Quidditch and does battle in a deadly duel.",
+    "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "price": 6.99,
+    "image": "book-2.jpg"
+  },
+  {
+    "name": "Catching Fire",
+    "author": "Suzanne Collins",
+    "ISBN": 439023491,
+    "genre": ["Fantasy", "Dystopia", "Fiction"],
+    "pageCount": 391,
+    "summary": "Sparks are igniting. Flames are spreading. And the Capitol wants revenge.",
+    "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "price": 9.99,
+    "image": "book-3.jpg"
+  },
+  {
+    "name": "Percy Jackson and the Lightning Thief",
+    "author": "Rick Riordan",
+    "ISBN": 9780786838653,
+    "genre": ["Sci-fi", "Fantasy", "Teen Dystopian"],
+    "pageCount": 275,
+    "summary": "Follow Percy and his friends on an exciting quest to find Zeus' lost thunderbolt!",
+    "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "price": 10.99,
+    "image": "book-4.jpg"
+  },
+  {
+    "name": "The Seven Husbands of Evelyn Hugo",
+    "author": "Taylor Jenkins Reid",
+    "ISBN": 1501139231,
+    "genre": ["Historical", "Romance", "Adult"],
+    "pageCount": 389,
+    "summary": "Aging and reclusive Hollywood movie icon Evelyn Hugo is finally ready to tell the truth about her glamorous and scandalous life.",
+    "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "price": 15.99,
+    "image": "book-5.jpg"
+  },
+  {
+    "name": "The Silent Patient",
+    "author": "Alex Michaelides",
+    "ISBN": 1250301696,
+    "genre": ["Thriller", "Mystery", "Crime"],
+    "pageCount": 336,
+    "summary": "Alicia Berenson’s life is seemingly perfect. One evening her husband Gabriel returns home late from a fashion shoot, and Alicia shoots him five times in the face, and then never speaks another word.",
+    "description": "Alicia Berenson’s life is seemingly perfect. A famous painter married to an in-demand fashion photographer, she lives in a grand house with big windows overlooking a park in one of London’s most desirable areas. One evening her husband Gabriel returns home late from a fashion shoot, and Alicia shoots him five times in the face, and then never speaks another word.",
+    "price": 11.99,
+    "image": "book-6.jpg"
+  },
+  {
+    "name": "Normal People",
+    "author": "Sally Rooney",
+    "ISBN": 1984822179,
+    "genre": ["Fiction", "Romance", "Adult"],
+    "pageCount": 273,
+    "summary": "At school Connell and Marianne pretend not to know each other. He’s popular and well-adjusted, star of the school soccer team while she is lonely, proud, and intensely private.",
+    "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "price": 12.99,
+    "image": "book-7.jpg"
+  },
+  {
+    "name": "Don't Look for Me",
+    "author": "Wendy Walker",
+    "ISBN": 1250198704,
+    "genre": ["Thriller", "Mystery", "Adult"],
+    "pageCount": 342,
+    "summary": "One night, Molly Clarke walked away from her life. The car abandoned miles from home. The note found at a nearby hotel.",
+    "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "price": 10.99,
+    "image": "book-8.jpg"
+  },
+  {
+    "name": "The Midnight Library",
+    "author": "Matt Haig",
+    "ISBN": 525559477,
+    "genre": ["Fiction", "Fantasy", "Magical Realism"],
+    "pageCount": 288,
+    "summary": "Between life and death there is a library, and within that library, the shelves go on forever.",
+    "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "price": 8.99,
+    "image": "book-9.jpg"
+  },
+  {
+    "name": "All Rhodes Lead Here",
+    "author": "Mariana Zapata",
+    "ISBN": 1953262015,
+    "genre": ["Fiction", "Romance", "Adult"],
+    "pageCount": 572,
+    "summary": "Losing people you love is hard.",
+    "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "price": 13.99,
+    "image": "book-10.jpg"
+  },
+  {
+    "name": "Book Lovers",
+    "author": "Emily Henry",
+    "ISBN": 593334833,
+    "genre": ["Romance", "Drama", "Young Adult"],
+    "pageCount": 400,
+    "summary": "One summer. Two rivals. A plot twist they didn't see coming",
+    "description": "Nora Stephens’ life is books—she’s read them all—and she is not that type of heroine. Not the plucky one, not the laidback dream girl, and especially not the sweetheart. In fact, the only people Nora is a heroine for are her clients, for whom she lands enormous deals as a cutthroat literary agent, and her beloved little sister Libby.",
+    "price": 12.99,
+    "image": "book-11.jpg"
+  }
+]

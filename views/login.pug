@@ -1,0 +1,53 @@
+extends base
+block content
+  main.main
+    .login-form
+      span.heading__title=title
+      form.form.login
+        .form-group
+          label(for='email') Email 
+          input#email(type='email', placeholder='you@example.com', required)
+        .form-group
+          label(for='password') Password 
+          input#password(type='password', placeholder='********', required)
+        .form-group
+          button.btn__nobg.btn__submit.btn__link.login-btn(href='/#') Login
+        .form-group.links
+          button.popup-btn.btn__nobg.btn__link-form.btn__link(id='forgotPw') Forgot your password?
+          button.popup-btn.btn__nobg.btn__link-form.btn__link(id='signup')  New to Novelish?
+
+    .container__popup
+      .popup(id='forgotPwPopup')
+        svg(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="#555" class="btn-icon closePopup-btn" id='forgotPwSubmit')
+          path(stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" )
+        .resetPw-form
+          span.heading__title  Forgot your password?
+          p.text__small We will send you an email to reset your password
+          form.form.resetPw
+            .form-group
+              label(for='email') Email 
+              input#email-reset(type='email', placeholder='you@example.com', required)
+            .form-group
+              button.btn__nobg.btn__submit.btn__link.forgotPwSubmit(id='forgotPwSubmit') Submit
+
+    .container__popup
+      .popup(id='signupPopup')
+        svg(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="#555" class="btn-icon closePopup-btn" id='signupSubmit')
+          path(stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" )
+        .signup-form
+          span.heading__title  Create an account
+          form.form.signup
+            .form-group
+              label(for='text') Name 
+              input#name-signup(type='name', placeholder='Jose Henry', required)
+            .form-group
+              label(for='email') Email 
+              input#email-signup(type='email', placeholder='you@example.com', required)
+            .form-group
+              label(for='password') Password 
+              input#password-signup(type='password', placeholder='********', required)
+            .form-group
+              label(for='confirmPassword') Confirm Password
+              input#confirmPassword-signup(type='password', placeholder='********', required)
+            .form-group
+              button.btn__nobg.btn__submit.btn__link.signupSubmit(id='signupSubmit') Create

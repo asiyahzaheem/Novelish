@@ -1,0 +1,25 @@
+extends base
+block content
+  section.section__myOrders
+    .container.nav__myOrders
+      a.nav__link(href='/me') My Account
+      p.heading__secondary.order-title=title
+      p    
+
+    .container.myOrders
+      - const orders = purchases
+      each order in orders
+        .order__block
+          .order__details
+            p.text__small.order-id=`Order #${order.id}`
+            p.text__small=`Placed on ${new Date(order.createdAt)}`
+          .order__items
+            each item in order.books
+              .order__item
+                img(src=`/img/books/${item.image}` alt='Book cover')
+                .details  
+                  .text__small.order-name=item.name
+                  .text__small=item.ISBN
+                .item__qty
+                  .text__small=`Qty : 1`
+      

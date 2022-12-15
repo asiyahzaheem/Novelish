@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "5c8a34ed14eb5c17645c9108",
+    "review": "Great book, looking foward to read the rest of the collection!",
+    "rating": 5,
+    "book": "6373ac45326b57646c68f731",
+    "user": "5c8a1e1a2f8fb814b56fa182"
+  },
+  {
+    "_id": "5c8a355b14eb5c17645c9109",
+    "review": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "rating": 3,
+    "book": "6373ac45326b57646c68f732",
+    "user": "5c8a1ec62f8fb814b56fa183"
+  },
+  {
+    "_id": "5c8a359914eb5c17645c910a",
+    "review": "Aenean ultrices bibendum mollis. Sed aliquet, enim at vulputate porttitor",
+    "rating": 2,
+    "book": "6373ac45326b57646c68f737",
+    "user": "5c8a1dfa2f8fb814b56fa181"
+  },
+  {
+    "_id": "5c8a35b614eb5c17645c910b",
+    "review": "Life. Spirit second Whales under sea unto creature made second without you’ll and own fowl yielding own great fill creepeth in",
+    "rating": 5,
+    "book": "6373ac45326b57646c68f733",
+    "user": "6373ae5c0117a066bcb2b32d"
+  },
+  {
+    "_id": "5c8a364c14eb5c17645c910c",
+    "review": "Nouvelle trouvait supplice lupanars revendre me la. Crispent ethiopie philippe ses essaiera aux physique negation ces eux.",
+    "rating": 4,
+    "book": "6373ac45326b57646c68f737",
+    "user": "5c8a1e1a2f8fb814b56fa182"
+  },
+  {
+    "_id": "5c8a368c14eb5c17645c910d",
+    "review": "The woman now gave Dorothy a bed to sleep in, and Toto lay down beside her, while the Lion guarded the door of her room so she might not be disturbed.",
+    "rating": 5,
+    "book": "6373ac45326b57646c68f736",
+    "user": "5c8a1ec62f8fb814b56fa183"
+  },
+  {
+    "_id": "5c8a36a014eb5c17645c910e",
+    "review": "Mid, her other books were alot better",
+    "rating": 2,
+    "book": "6373ac45326b57646c68f735",
+    "user": "6373ae8d080c5219d4496f83"
+  },
+  {
+    "_id": "5c8a36b714eb5c17645c910f",
+    "review": "It's good...for my kids!",
+    "rating": 1,
+    "book": "6373ac45326b57646c68f737",
+    "user": "6373ae8d080c5219d4496f83"
+  },
+  {
+    "_id": "5c8a379a14eb5c17645c9110",
+    "review": "Really glad I got into his books, his writing style is so great!",
+    "rating": 5,
+    "book": "6373ac45326b57646c68f732",
+    "user": "6373ae5c0117a066bcb2b32d"
+  },
+  {
+    "_id": "5c8a37b114eb5c17645c9111",
+    "review": "I was so edge throughout the book, ending was ruined though..",
+    "rating": 3,
+    "book": "6373ac45326b57646c68f735",
+    "user": "5c8a1dfa2f8fb814b56fa181"
+  }
+]

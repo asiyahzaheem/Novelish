@@ -1,0 +1,65 @@
+[
+  {
+    "_id": "5c8a1dfa2f8fb814b56fa181",
+    "name": "Lourdes Browning",
+    "email": "loulou@example.com",
+    "role": "user",
+    "active": true,
+    "photo": "user-1.jpg",
+    "password": "test1234"
+  },
+  {
+    "_id": "5c8a1e1a2f8fb814b56fa182",
+    "name": "Sophie Louise Hart",
+    "email": "sophie@example.com",
+    "role": "user",
+    "active": true,
+    "photo": "user-2.jpg",
+    "password": "test1234"
+  },
+  {
+    "_id": "5c8a1ec62f8fb814b56fa183",
+    "name": "Ayla Cornell",
+    "email": "ayls@example.com",
+    "role": "user",
+    "active": true,
+    "photo": "user-3.jpg",
+    "password": "test1234"
+  },
+  {
+    "_id": "5c8a1f4e2f8fb814b56fa185",
+    "name": "Jennifer Hardy",
+    "email": "jennifer@example.com",
+    "role": "admin",
+    "active": true,
+    "photo": "user-4.jpg",
+    "password": "test1234"
+  },
+  {
+    "_id": "5c8a201e2f8fb814b56fa186",
+    "name": "Kate Morrison",
+    "email": "kate@example.com",
+    "role": "admin",
+    "active": true,
+    "photo": "user-5.jpg",
+    "password": "test1234"
+  },
+  {
+    "_id": "5c8a211f2f8fb814b56fa188",
+    "name": "Cristian Vega",
+    "email": "chris@example.com",
+    "role": "seller",
+    "active": true,
+    "photo": "user-6.jpg",
+    "password": "test1234"
+  },
+  {
+    "_id": "5c8a21f22f8fb814b56fa18a",
+    "name": "Asiyah Zaheem",
+    "email": "asiyahzaheem2006@gmail.com",
+    "role": "admin",
+    "active": true,
+    "photo": "user-7.jpg",
+    "password": "test1234"
+  }
+]

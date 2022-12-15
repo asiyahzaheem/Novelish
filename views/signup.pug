@@ -1,0 +1,20 @@
+extends base
+block content
+  main.main
+    .signup-form
+      span.heading__title=title
+      form.form.signup
+        .form-group
+          label(for='email') Email 
+          input#email(type='email', placeholder='you@example.com', required)
+        .form-group
+          label(for='text') Name 
+          input#email(type='name', placeholder='Jose Henry', required)
+        .form-group
+          label(for='password') Password 
+          input#password(type='password', placeholder='********', required)
+        .form-group
+          label(for='password') Password Confirm
+          input#password(type='passwordConfirm', placeholder='********', required)
+        .form-group
+          button.btn__nobg.btn__submit.btn__link.signup-btn(href='/#') Create
