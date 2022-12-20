@@ -44,7 +44,6 @@ exports.cart = catchAsync(async (req, res, next) => {
 
 exports.getCart = catchAsync(async (req, res, next) => {
   const cart = cartVal;
-
   res.status(200).render('cart', {
     title: 'My cart',
     cart,

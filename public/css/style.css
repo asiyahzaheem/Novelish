@@ -18,6 +18,9 @@ body {
   margin: 0 auto;
   padding: 0 3.2rem;
 }
+section {
+  min-height: 75vh;
+}
 .heading__primary,
 .heading__secondary,
 .heading__tertiary {
@@ -121,6 +124,7 @@ body {
   padding: 2.6rem 6.4rem;
   border-radius: 10rem;
   font-weight: 500;
+  cursor: pointer;
 }
 .btn:hover {
   transition: background-color 0.3s;
