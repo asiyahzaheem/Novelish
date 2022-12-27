@@ -28,7 +28,11 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
           product_data: {
             name: item.item.name,
             description: item.item.id,
-            images: ['https://www.natours.dev/img/tours/tour-1-cover.jpg'],
+            images: [
+              `${req.protocol}://${req.get('host')}/img/books/${
+                item.item.image
+              }`,
+            ],
           },
           unit_amount: item.item.price * 100,
         },
@@ -45,7 +49,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 
 const createBookingCheckout = async (session) => {
   const books = [];
-  session.line_items.forEach((item) =>
+  session.display_items.forEach((item) =>
     books.append(item.price_data.product_data.description)
   );
   console.log('session');
@@ -54,7 +58,7 @@ const createBookingCheckout = async (session) => {
   console.log(books);
   const user = await User.findOne({ email: session.customer_email });
   let price = 0;
-  session.line_items.forEach(
+  session.display_items.forEach(
     (item) => (price = price + item.price_data.unit_amount / 100)
   );
   console.log('price');

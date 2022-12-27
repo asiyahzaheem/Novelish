@@ -78,12 +78,9 @@ const limiter = rateLimit({
 
 app.use('/api', limiter);
 
+app.use(express.raw({ type: 'application/json' }));
 // we need this object to be in raw string form and not json
-app.post(
-  '/webhook-checkout',
-  express.raw({ type: 'application/json' }),
-  purchaseController.webhookCheckout
-);
+app.post('/webhook-checkout', purchaseController.webhookCheckout);
 
 // get data from req.body // converts body to json
 app.use(
