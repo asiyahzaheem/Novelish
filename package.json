@@ -10,7 +10,6 @@
     "debug": "ndb server.js",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
     "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
-
   },
   "author": "asiyah",
   "license": "ISC",
@@ -49,6 +48,6 @@
     "main": false
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "parcel": "^2.8.2"
   }
 }
