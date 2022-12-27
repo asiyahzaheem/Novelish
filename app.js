@@ -10,6 +10,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const compression = require('compression');
+const bodyParser = require('body-parser');
 
 const bookRouter = require('./routers/bookRouter');
 const userRouter = require('./routers/userRouter');
@@ -78,9 +79,13 @@ const limiter = rateLimit({
 
 app.use('/api', limiter);
 
-app.use(express.raw({ type: 'application/json' }));
+// app.use(express.raw({ type: 'application/json' }));
 // we need this object to be in raw string form and not json
-app.post('/webhook-checkout', purchaseController.webhookCheckout);
+app.post(
+  '/webhook-checkout',
+  bodyParser.raw({ type: 'application/json' }),
+  purchaseController.webhookCheckout
+);
 
 // get data from req.body // converts body to json
 app.use(
