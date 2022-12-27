@@ -19,6 +19,7 @@ const viewRouter = require('./routers/viewRouter');
 const cartRouter = require('./routers/cartRouter');
 const globalErrorHandling = require('./controllers/errorController');
 const AppError = require('./utils/appError');
+const purchaseController = require('./controllers/purchaseController');
 
 const app = express();
 
@@ -77,7 +78,14 @@ const limiter = rateLimit({
 
 app.use('/api', limiter);
 
-// get data from req.body
+// we need this object to be in raw string form and not json
+app.post(
+  '/webhook-checkout',
+  bodyParser.raw({ type: 'application/json' }),
+  purchaseController.webhookCheckout
+);
+
+// get data from req.body // converts body to json
 app.use(
   express.json({
     limit: '10kb',
