@@ -3,7 +3,6 @@ const Book = require('../models/bookModel');
 const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./factoryHandler');
-const User = require('../models/userModel');
 const stripe = require('stripe')(
   'sk_test_51MCPfyEHSvBhKikvA5xJHUzGCm5yt8iA6yzgmPYXY14ufGtPSLB9HBqwD8apdPmjnMutalCh7fQY9whSWMfrU1Xc00SpkdLxLM'
 );
@@ -64,6 +63,7 @@ const createBookingCheckout = async (session) => {
 };
 
 exports.webhookCheckout = (req, res, next) => {
+  console.log('webhook-checkout');
   const signature = req.headers['stripe-signature'];
   let event;
   try {
@@ -75,6 +75,7 @@ exports.webhookCheckout = (req, res, next) => {
   } catch (err) {
     return res.status(400).send(`Webhook error: ${err.message}`);
   }
+  console.log(event.data.object);
   if (event.type === 'checkout.session.completed')
     createBookingCheckout(event.data.object);
   res.status(200).json({ received: 'true ' });
