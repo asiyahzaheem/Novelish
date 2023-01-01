@@ -56,7 +56,7 @@ const createBookingCheckout = async (session) => {
   // console.log(session);
   // console.log('books');
   // console.log(books);
-  const user = await User.findOne({ email: session.customer_email });
+  // const user = await User.findOne({ email: session.customer_email });
   // let price = 0;
   // session.display_items.forEach(
   //   (item) => (price = price + item.price_data.unit_amount / 100)
@@ -65,6 +65,7 @@ const createBookingCheckout = async (session) => {
   // console.log(price);
   const books = ['6373ac45326b57646c68f734'];
   const price = 10.99;
+  const user = '5c8a1e1a2f8fb814b56fa182';
   await Purchase.create({ books, user, price });
 };
 
