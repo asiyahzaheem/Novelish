@@ -17,5 +17,6 @@ export const purchase = async (cart) => {
     await stripe.redirectToCheckout({ sessionId: session.data.session.id });
   } catch (err) {
     showAlert('error', err);
+    console.log(err);
   }
 };
