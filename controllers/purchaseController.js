@@ -14,9 +14,9 @@ exports.getPurchase = factory.getOne(Purchase);
 exports.deletePurchase = factory.deleteOne(Purchase);
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
-  const userId = await User.findOne({ email: req.user.email });
+  // const userId = await User.findOne({ email: req.user.email });
   const customer = await stripe.customers.create({
-    metadata: { userId, cart: JSON.stringify(req.body.cart) },
+    metadata: { cart: JSON.stringify(req.body.cart) },
   });
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
@@ -46,6 +46,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     }),
   });
   // send
+  console.log(session);
   res.status(200).json({
     status: 'success',
     session,
@@ -71,9 +72,10 @@ const createBookingCheckout = async (customer, data) => {
   const cart = JSON.parse(customer.metadata.cart);
   const books = Object.keys(cart.items);
   const price = cart.totalPrice.toFixed(2);
+  const user = await User.findOne({ email: data.customer_email });
   // const books = ['6373ac45326b57646c68f734'];
   // const price = 10.99;
-  const user = JSON.parse(customer.metadata.userId);
+  // const user = JSON.parse(customer.metadata.userId);
   await Purchase.create({ books, user, price });
 };
 
