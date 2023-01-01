@@ -14,6 +14,10 @@ exports.getPurchase = factory.getOne(Purchase);
 exports.deletePurchase = factory.deleteOne(Purchase);
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
+  const userId = await User.findOne({ email: req.user.email });
+  const customer = await stripe.customers.create({
+    metadata: { userId, cart: JSON.stringify(req.body.cart) },
+  });
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     success_url: `${req.protocol}://${req.get('host')}/my-orders`,
@@ -21,6 +25,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     customer_email: req.user.email,
     mode: 'payment',
     // client_reference_id: req.params.bookId,
+    customer: customer.id,
     line_items: Object.values(req.body.cart.items).map((item) => {
       return {
         price_data: {
@@ -47,7 +52,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   });
 });
 
-const createBookingCheckout = async (session) => {
+const createBookingCheckout = async (customer, data) => {
   // const books = [];
   // session.display_items.forEach((item) =>
   //   books.append(item.price_data.product_data.description)
@@ -63,9 +68,12 @@ const createBookingCheckout = async (session) => {
   // );
   // console.log('price');
   // console.log(price);
-  const books = ['6373ac45326b57646c68f734'];
-  const price = 10.99;
-  const user = '5c8a1e1a2f8fb814b56fa182';
+  const cart = JSON.parse(customer.metadata.cart);
+  const books = Object.keys(cart.items);
+  const price = cart.totalPrice.toFixed(2);
+  // const books = ['6373ac45326b57646c68f734'];
+  // const price = 10.99;
+  const user = JSON.parse(customer.metadata.userId);
   await Purchase.create({ books, user, price });
 };
 
@@ -81,7 +89,13 @@ exports.webhookCheckout = (req, res, next) => {
   } catch (err) {
     return res.status(400).send(`Webhook error: ${err.message}`);
   }
-  if (event.type === 'checkout.session.completed')
-    createBookingCheckout(event.data.object);
+  if (event.type === 'checkout.session.completed') {
+    stripe.customers
+      .retrieve(event.data.object.customer)
+      .then((customer) => {
+        createBookingCheckout(customer, event.data.object);
+      })
+      .catch((err) => console.log(err.message));
+  }
   res.status(200).json({ received: true });
 };
