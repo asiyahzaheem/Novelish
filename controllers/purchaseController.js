@@ -18,7 +18,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     payment_method_types: ['card'],
     success_url: `${req.protocol}://${req.get('host')}/my-orders`,
     cancel_url: `${req.protocol}://${req.get('host')}/cart`,
-    customer_email: req.user.customer,
+    customer_email: req.user.email,
     mode: 'payment',
     // client_reference_id: req.params.bookId,
     line_items: Object.values(req.body.cart.items).map((item) => {
@@ -48,28 +48,28 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 });
 
 const createBookingCheckout = async (session) => {
-  const books = [];
-  session.display_items.forEach((item) =>
-    books.append(item.price_data.product_data.description)
-  );
-  console.log('session');
-  console.log(session);
-  console.log('books');
-  console.log(books);
+  // const books = [];
+  // session.display_items.forEach((item) =>
+  //   books.append(item.price_data.product_data.description)
+  // );
+  // console.log('session');
+  // console.log(session);
+  // console.log('books');
+  // console.log(books);
   const user = await User.findOne({ email: session.customer_email });
-  let price = 0;
-  session.display_items.forEach(
-    (item) => (price = price + item.price_data.unit_amount / 100)
-  );
-  console.log('price');
-  console.log(price);
+  // let price = 0;
+  // session.display_items.forEach(
+  //   (item) => (price = price + item.price_data.unit_amount / 100)
+  // );
+  // console.log('price');
+  // console.log(price);
+  const books = ['6373ac45326b57646c68f734'];
+  const price = 10.99;
   await Purchase.create({ books, user, price });
 };
 
 exports.webhookCheckout = (req, res, next) => {
-  console.log('webhook-checkout', req.headers);
   const signature = req.headers['stripe-signature'];
-  console.log(signature);
   let event;
   try {
     event = stripe.webhooks.constructEvent(
@@ -80,7 +80,6 @@ exports.webhookCheckout = (req, res, next) => {
   } catch (err) {
     return res.status(400).send(`Webhook error: ${err.message}`);
   }
-  console.log(event.data.object);
   if (event.type === 'checkout.session.completed')
     createBookingCheckout(event.data.object);
   res.status(200).json({ received: true });

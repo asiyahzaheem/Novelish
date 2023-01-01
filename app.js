@@ -82,7 +82,7 @@ app.use('/api', limiter);
 // we need this object to be in raw string form and not json
 app.post(
   '/webhook-checkout',
-  express.raw({ type: 'application/*' }),
+  express.raw({ type: '*/*' }),
   purchaseController.webhookCheckout
 );
 
