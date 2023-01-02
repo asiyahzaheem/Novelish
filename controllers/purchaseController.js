@@ -14,7 +14,7 @@ exports.getPurchase = factory.getOne(Purchase);
 exports.deletePurchase = factory.deleteOne(Purchase);
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
-  // const userId = await User.findOne({ email: req.user.email });
+  req.body.cart = JSON.parse(req.body.cart)
   const customer = await stripe.customers.create({
     metadata: { cart: req.body.cart },
   });

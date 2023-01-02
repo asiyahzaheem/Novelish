@@ -12,6 +12,9 @@ export const purchase = async (cart) => {
       method: 'post',
       url: '/api/v1/purchases/checkout-session',
       data: { cart },
+      headers: {
+        'Content-type': 'application/json'
+      }
     });
 
     await stripe.redirectToCheckout({ sessionId: session.data.session.id });
