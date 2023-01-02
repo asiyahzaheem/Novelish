@@ -16,8 +16,10 @@ exports.deletePurchase = factory.deleteOne(Purchase);
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   // const userId = await User.findOne({ email: req.user.email });
   const customer = await stripe.customers.create({
-    metadata: { cart: JSON.stringify(req.body.cart) },
+    metadata: { cart: req.body.cart },
   });
+  console.log('customer in getCheckoutSession')
+  console.log(customer)
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     success_url: `${req.protocol}://${req.get('host')}/my-orders`,
@@ -73,6 +75,7 @@ const createBookingCheckout = async (customer, data) => {
   const books = Object.keys(cart.items);
   const price = cart.totalPrice.toFixed(2);
   const user = await User.findOne({ email: data.customer_email });
+  console.log(cart, books, price, user)
   // const books = ['6373ac45326b57646c68f734'];
   // const price = 10.99;
   // const user = JSON.parse(customer.metadata.userId);
@@ -95,6 +98,7 @@ exports.webhookCheckout = (req, res, next) => {
     stripe.customers
       .retrieve(event.data.object.customer)
       .then((customer) => {
+        console.log(customer)
         createBookingCheckout(customer, event.data.object);
       })
       .catch((err) => console.log(err.message));
