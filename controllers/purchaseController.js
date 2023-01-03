@@ -75,7 +75,8 @@ const createBookingCheckout = async (customer, data) => {
   // console.log(price);
   const cart = JSON.parse(customer.metadata.cart);
   const books = Object.keys(cart);
-  const price = 3000
+  let price = 0
+  books.forEach(book => {price = price + cart[book].price})
   const user = await User.findOne({ email: data.customer_email });
   console.log( books, price, user)
   await Purchase.create({ books, user, price });
