@@ -16,9 +16,8 @@ exports.deletePurchase = factory.deleteOne(Purchase);
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   req.body.cart = JSON.parse(req.body.cart)
   const customer = await stripe.customers.create({
-    metadata: { cart: req.body.cart },
+    metadata: { cart:  JSON.stringify(req.body.cart) },
   });
-  console.log('customer in getCheckoutSession')
   console.log(customer)
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
@@ -82,7 +81,7 @@ const createBookingCheckout = async (customer, data) => {
   await Purchase.create({ books, user, price });
 };
 
-exports.webhookCheckout = (req, res, next) => {
+exports.webhookCheckout = async (req, res, next) => {
   const signature = req.headers['stripe-signature'];
   let event;
   try {
@@ -95,13 +94,11 @@ exports.webhookCheckout = (req, res, next) => {
     return res.status(400).send(`Webhook error: ${err.message}`);
   }
   if (event.type === 'checkout.session.completed') {
-    stripe.customers
-      .retrieve(event.data.object.customer)
-      .then((customer) => {
-        console.log(customer)
-        createBookingCheckout(customer, event.data.object);
-      })
-      .catch((err) => console.log(err.message));
+    const customer = await stripe.customers.retrieve(event.data.object.customer)
+      
+    console.log(customer)
+    createBookingCheckout(customer, event.data.object);
+    
   }
   res.status(200).json({ received: true });
 };
