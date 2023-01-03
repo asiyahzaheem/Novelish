@@ -14,11 +14,11 @@ exports.getPurchase = factory.getOne(Purchase);
 exports.deletePurchase = factory.deleteOne(Purchase);
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
-  req.body.cart = JSON.parse(req.body.cart)
-  const customer = await stripe.customers.create({
-    metadata: { cart:  JSON.stringify(req.body.cart) },
-  });
-  console.log(customer)
+  // req.body.cart = JSON.parse(req.body.cart)
+  // const customer = await stripe.customers.create({
+  //   metadata: { cart:  JSON.stringify(req.body.cart) },
+  // });
+  // console.log(customer)
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     success_url: `${req.protocol}://${req.get('host')}/my-orders`,
@@ -26,7 +26,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     customer_email: req.user.email,
     mode: 'payment',
     // client_reference_id: req.params.bookId,
-    customer: customer.id,
+    // customer: customer.id,
     line_items: Object.values(req.body.cart.items).map((item) => {
       return {
         price_data: {
@@ -54,26 +54,26 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   });
 });
 
-const createBookingCheckout = async (customer, data) => {
-  // const books = [];
-  // session.display_items.forEach((item) =>
-  //   books.append(item.price_data.product_data.description)
-  // );
-  // console.log('session');
-  // console.log(session);
-  // console.log('books');
-  // console.log(books);
-  // const user = await User.findOne({ email: session.customer_email });
-  // let price = 0;
-  // session.display_items.forEach(
-  //   (item) => (price = price + item.price_data.unit_amount / 100)
-  // );
-  // console.log('price');
-  // console.log(price);
-  const cart = JSON.parse(customer.metadata.cart);
-  const books = Object.keys(cart.items);
-  const price = cart.totalPrice.toFixed(2);
-  const user = await User.findOne({ email: data.customer_email });
+const createBookingCheckout = async ( data) => {
+  const books = [];
+  session.display_items.forEach((item) =>
+    books.append(item.price_data.product_data.description)
+  );
+  console.log('session');
+  console.log(session);
+  console.log('books');
+  console.log(books);
+  const user = await User.findOne({ email: session.customer_email });
+  let price = 0;
+  session.display_items.forEach(
+    (item) => (price = price + item.price_data.unit_amount / 100)
+  );
+  console.log('price');
+  console.log(price);
+  // const cart = JSON.parse(customer.metadata.cart);
+  // const books = Object.keys(cart.items);
+  // const price = cart.totalPrice.toFixed(2);
+  // const user = await User.findOne({ email: data.customer_email });
   console.log(cart, books, price, user)
   // const books = ['6373ac45326b57646c68f734'];
   // const price = 10.99;
@@ -94,11 +94,11 @@ exports.webhookCheckout = async (req, res, next) => {
     return res.status(400).send(`Webhook error: ${err.message}`);
   }
   if (event.type === 'checkout.session.completed') {
-    const customer = await stripe.customers.retrieve(event.data.object.customer)
-      
-    console.log(customer)
-    createBookingCheckout(customer, event.data.object);
-    
+    // const customer = await stripe.customers.retrieve(event.data.object.customer)
+    // console.log(customer)
+    // createBookingCheckout(customer, event.data.object);
+    createBookingCheckout(event.data.object);
   }
   res.status(200).json({ received: true });
 };
+
