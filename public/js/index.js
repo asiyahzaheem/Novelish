@@ -228,7 +228,6 @@ if (orderBtn) {
   orderBtn.addEventListener('click', (e) => {
     e.target.textContent = 'Processing...';
     const cart = window.localStorage.getItem('cart');
-    console.log('hello')
     purchase(JSON.parse(cart));
   });
 }
